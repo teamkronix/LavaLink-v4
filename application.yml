@@ -1,0 +1,130 @@
+lavalink:
+    plugins:
+        - dependency: dev.lavalink.youtube:youtube-plugin:1.9.0
+          snapshot: false
+    server:
+        bufferDurationMs: 400
+        filters:
+            channelMix: true
+            distortion: true
+            equalizer: true
+            karaoke: true
+            lowPass: true
+            rotation: true
+            timescale: true
+            tremolo: true
+            vibrato: true
+            volume: true
+        frameBufferDurationMs: 5000
+        gc-warnings: true
+        opusEncodingQuality: 10
+        password: Shreyaismylove
+        playerUpdateInterval: 5
+        resamplingQuality: LOW
+        soundcloudSearchEnabled: true
+        sources:
+            bandcamp: true
+            http: true
+            local: false
+            nico: true
+            soundcloud: true
+            twitch: true
+            vimeo: true
+            youtube: false
+        trackStuckThresholdMs: 10000
+        useSeekGhosting: true
+        youtubePlaylistLoadLimit: 6
+        youtubeSearchEnabled: true
+logging:
+    file:
+        path: ./logs/
+    level:
+        lavalink: INFO
+        root: INFO
+    logback:
+        rollingpolicy:
+            max-file-size: 1GB
+            max-history: 30
+    request:
+        enabled: true
+        includeClientInfo: true
+        includeHeaders: false
+        includePayload: true
+        includeQueryString: true
+        maxPayloadLength: 10000
+metrics:
+    prometheus:
+        enabled: false
+        endpoint: /metrics
+plugins:
+    lavasrc:
+        lyrics-sources:
+            deezer: false
+            spotify: false
+            youtube: false
+        providers:
+            - ytsearch:"%ISRC%"
+            - ytsearch:%QUERY%
+        sources:
+            applemusic: false
+            deezer: false
+            flowerytts: false
+            spotify: true
+            yandexmusic: false
+            youtube: true
+        spotify:
+            albumLoadLimit: 6
+            clientId: 2e89bc1910c24aa097abca74b9a5d26a
+            clientSecret: b11e7e2371954890b6cfeb6c04c68d7b
+            countryCode: US
+            playlistLoadLimit: 6
+            spDc: your sp dc cookie
+    youtube:
+        allowDirectPlaylistIds: true
+        allowDirectVideoIds: true
+        allowSearch: true
+        clientOptions:
+            ANDROID_MUSIC:
+                playback: false
+                playlistLoading: false
+                searching: false
+                videoLoading: true
+            MUSIC:
+                playback: false
+                playlistLoading: false
+                searching: true
+                videoLoading: false
+            TVHTML5EMBEDDED:
+                playback: true
+                playlistLoading: false
+                searching: false
+                videoLoading: true
+            WEB:
+                playback: false
+                playlistLoading: true
+                searching: true
+                videoLoading: false
+            WEBEMBEDDED:
+                playback: false
+                playlistLoading: false
+                searching: false
+                videoLoading: false
+        clients:
+            - MUSIC
+            - ANDROID_MUSIC
+            - WEB
+            - WEBEMBEDDED
+            - TVHTML5EMBEDDED
+        enabled: true
+        oauth:
+            enabled: true
+            refreshToken: 1//01g2gCIuiFH7TCgYIARAAGAESNwF-L9Ir8d744LReMKlyam3FKm002V4ZE3Lk2oBewHlBjNGPr6k5qPW7sPhmKYJ19wgvW9Yloi4
+            skipInitialization: false
+sentry:
+    dsn: ""
+    environment: ""
+server:
+    address: 0.0.0.0
+    http2:
+        enabled: false
+    port: 5573
